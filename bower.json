@@ -1,0 +1,8 @@
+{
+  "name": "bnj-garden-platformer",
+  "version": "0.0.0",
+  "dependencies": {
+    "requirejs": "~2.1.4"
+  },
+  "devDependencies": {}
+}
