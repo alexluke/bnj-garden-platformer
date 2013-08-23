@@ -1,5 +1,12 @@
 define ->
     class CanvasRenderer
+        @create: (width, height) ->
+            canvas = document.createElement 'canvas'
+            canvas.width = width
+            canvas.height = height
+
+            new CanvasRenderer canvas
+
         constructor: (canvasEl) ->
             if typeof canvasEl == 'string'
                 @canvas = document.getElementById canvasEl
@@ -16,3 +23,5 @@ define ->
                 width: @canvas.width
                 height: @canvas.height
 
+        drawTexture: (texture, x, y) ->
+            @ctx.putImageData texture.data, x, y
