@@ -1,12 +1,16 @@
 define [
     'game'
-    'texture'
-    'sprite'
-], (Game, Texture, Sprite) ->
+    'sprites/wizard'
+], (Game, Wizard) ->
     class Platformer extends Game
         init: ->
-            texture = new Texture 'sprite', 81, 81
-            @sprite = new Sprite texture, 50, 50
+            @wizard = new Wizard 50, 50
 
         draw: ->
-            @sprite.draw @renderer
+            @wizard.draw @renderer
+
+        update: (delta, now) ->
+            @wizard.update delta
+
+            if @mouse.leftButton
+                @wizard.shoot now
