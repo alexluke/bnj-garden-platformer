@@ -7,6 +7,7 @@ define [
             @wizard = new Wizard 50, 50
 
         draw: ->
+            @renderer.clear()
             @wizard.draw @renderer
 
         update: (delta, now) ->

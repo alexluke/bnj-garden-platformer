@@ -25,3 +25,12 @@ define ->
 
         drawTexture: (texture, x, y) ->
             @ctx.putImageData texture.data, x, y
+
+        drawRect: (color, x, y, width, height) ->
+            @ctx.save()
+            @ctx.fillStyle = color
+            @ctx.fillRect x, y, width, height
+            @ctx.restore()
+
+        clear: ->
+            @drawRect 'white', 0, 0, @canvas.width, @canvas.height
