@@ -7,7 +7,7 @@ define [
         constructor: (x, y) ->
             super new Texture('wizard', 8), x, y
 
-            @fireballCooldown = .5
+            @fireballCooldown = 2000
             @lastFireball = 0
             @fireballs = []
 
@@ -23,3 +23,4 @@ define [
             if now - @lastFireball > @fireballCooldown
                 fireball = new Fireball @x, @y
                 @fireballs.push fireball
+                @lastFireball = now
