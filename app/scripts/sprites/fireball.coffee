@@ -4,9 +4,10 @@ define [
 ], (Sprite, Texture) ->
     class Fireball extends Sprite
         constructor: (x, y) ->
-            super new Texture('fireball', 8), x, y
+            scale = 8
+            super new Texture('fireball', scale), x, y
             @speed =
-                x: 30
+                x: 30 * scale
                 y: 0
 
         update: (delta) ->

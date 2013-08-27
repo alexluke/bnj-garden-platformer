@@ -11,7 +11,7 @@ define [
             @handOffset =
                 x: 16 * scale
                 y: 25 * scale
-            @fireballCooldown = 2000
+            @fireballCooldown = 700
             @lastFireball = 0
             @fireballs = []
 
