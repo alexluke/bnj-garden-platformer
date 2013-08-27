@@ -24,7 +24,7 @@ define ->
                 height: @canvas.height
 
         drawTexture: (texture, x, y) ->
-            @ctx.putImageData texture.data, x, y
+            @ctx.drawImage texture.data, x, y
 
         drawRect: (color, x, y, width, height) ->
             @ctx.save()

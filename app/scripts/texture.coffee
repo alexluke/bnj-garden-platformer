@@ -12,11 +12,10 @@ define [
             canvas = CanvasRenderer.create image.width, image.height
             canvas.ctx.drawImage image, 0, 0
 
-            originalData = canvas.ctx.getImageData 0, 0, image.width, image.height
-
-            if scale == 1
-                @data = originalData
+            if scale == 0
+                @data = canvas.canvas
             else
+                originalData = canvas.ctx.getImageData 0, 0, image.width, image.height
                 scaled = canvas.ctx.createImageData originalData.width * scale, originalData.height * scale
 
                 for row in [0...originalData.height]
@@ -35,5 +34,7 @@ define [
                                 for i in [0..3]
                                     scaled.data[(destRow * scaled.width + destCol ) * 4 + i] = sourcePixel[i]
 
-                @data = scaled
+                canvas = CanvasRenderer.create scaled.width, scaled.height
+                canvas.ctx.putImageData scaled, 0, 0
+                @data = canvas.canvas
 
