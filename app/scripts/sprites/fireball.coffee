@@ -1,15 +1,14 @@
 define [
-    'sprite'
-    'texture'
-], (Sprite, Texture) ->
-    class Fireball extends Sprite
+    'animatedSprite'
+], (AnimatedSprite) ->
+    class Fireball extends AnimatedSprite
         constructor: (x, y) ->
-            scale = 8
-            super new Texture('fireball', scale), x, y
+            super 'fireball', x, y, 3, .15
             @speed =
-                x: 30 * scale
+                x: 240
                 y: 0
 
-        update: (delta) ->
+        update: (delta, now) ->
+            super delta, now
             @x += @speed.x * delta
             @y += @speed.y * delta

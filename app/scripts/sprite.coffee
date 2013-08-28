@@ -7,4 +7,4 @@ define ->
         draw: (renderer) ->
             renderer.drawTexture @texture, @x, @y
 
-        update: (delta) ->
+        update: (delta, time) ->
