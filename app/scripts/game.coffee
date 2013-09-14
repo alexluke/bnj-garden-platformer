@@ -1,7 +1,8 @@
 define [
     'requestAnimationFrame'
     'renderers/canvas'
-], (requestAnimationFrame, CanvasRenderer) ->
+    'input/keyboard'
+], (requestAnimationFrame, CanvasRenderer, Keyboard) ->
     class Game
         constructor: (canvasEl) ->
             @renderer = new CanvasRenderer canvasEl
@@ -10,6 +11,7 @@ define [
 
         start: ->
             @setupMouse()
+            @keyboard = new Keyboard()
 
             drawTick = =>
                 @draw()
