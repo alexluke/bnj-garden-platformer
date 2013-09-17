@@ -1,6 +1,6 @@
 define ->
     class Mouse
-        constructor: ->
+        constructor: (screen) ->
             @x = 0
             @y = 0
             @leftButton = false
@@ -8,8 +8,8 @@ define ->
             @rightButton = false
 
             document.addEventListener 'mousemove', (e) =>
-                @x = e.pageX - @renderer.screen.x
-                @y = e.pageY - @renderer.screen.y
+                @x = e.pageX - screen.x
+                @y = e.pageY - screen.y
 
             document.addEventListener 'mousedown', (e) =>
                 e.preventDefault()

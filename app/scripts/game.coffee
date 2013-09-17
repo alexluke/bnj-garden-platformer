@@ -11,7 +11,7 @@ define [
             @init()
 
         start: ->
-            @mouse = new Mouse()
+            @mouse = new Mouse @renderer.screen
             @keyboard = new Keyboard()
 
             drawTick = =>
