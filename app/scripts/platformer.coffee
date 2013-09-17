@@ -13,5 +13,6 @@ define [
         update: (delta, now) ->
             @wizard.update delta
 
+            @wizard.move delta, @keyboard
             if @mouse.leftButton
                 @wizard.shoot now

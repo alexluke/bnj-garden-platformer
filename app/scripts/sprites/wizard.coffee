@@ -8,6 +8,8 @@ define [
             scale = 8
             super new Texture('wizard', scale), x, y
 
+            @moveSpeed = 100
+
             @handOffset =
                 x: 16 * scale
                 y: 25 * scale
@@ -22,6 +24,18 @@ define [
         update: (delta) ->
             f.update delta for f in @fireballs
             return
+
+        move: (delta, keyboard) ->
+            # TODO: abstract keybindings
+            move = delta * @moveSpeed
+            if keyboard.pressed 'left'
+                @x -= move
+            if keyboard.pressed 'right'
+                @x += move
+            if keyboard.pressed 'up'
+                @y -= move
+            if keyboard.pressed 'down'
+                @y += move
 
         shoot: (now) ->
             if now - @lastFireball > @fireballCooldown
