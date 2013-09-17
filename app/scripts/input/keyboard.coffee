@@ -12,9 +12,9 @@ define ->
             @keys = {}
             @modifiers = {}
 
-            document.addEventListener 'keydown', (e) ->
+            document.addEventListener 'keydown', (e) =>
                 @onKeyChange e, true
-            document.addEventListener 'keyup', (e) ->
+            document.addEventListener 'keyup', (e) =>
                 @onKeyChange e, false
 
         onKeyChange: (e, pressed) ->
@@ -28,7 +28,7 @@ define ->
         pressed: (key) ->
             if key in Keyboard.modifiers
                 @modifiers[key]
-            else if key of aliases
+            else if key of Keyboard.aliases
                 @keys[Keyboard.aliases[key]]
             else
                 @keys[key]
