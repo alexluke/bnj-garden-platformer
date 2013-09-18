@@ -31,4 +31,4 @@ define ->
             else if key of Keyboard.aliases
                 @keys[Keyboard.aliases[key]]
             else
-                @keys[key]
+                @keys[key.toUpperCase().charCodeAt 0]
