@@ -28,13 +28,13 @@ define [
         move: (delta, keyboard) ->
             # TODO: abstract keybindings
             move = delta * @moveSpeed
-            if keyboard.pressed 'left'
+            if keyboard.pressed 'a'
                 @x -= move
-            if keyboard.pressed 'right'
+            if keyboard.pressed 'd'
                 @x += move
-            if keyboard.pressed 'up'
+            if keyboard.pressed 'w'
                 @y -= move
-            if keyboard.pressed 'down'
+            if keyboard.pressed 's'
                 @y += move
 
         shoot: (now) ->
